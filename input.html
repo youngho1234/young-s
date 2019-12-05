@@ -1,0 +1,146 @@
+
+<nav>
+    <div>
+          <div class="menu-btn">
+                <ion-icon name="menu"></ion-icon>
+          </div>
+          <div class="menu">
+                <div class="close-menu">
+                      <ion-icon name="menu"></ion-icon>
+                </div>
+                <div class="nav">
+                      <ul class="main-menu">
+                            <li class="main-menu-item">
+                                  <a href="#"><i class="fa fa-fw fa-home"></i> Home<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="About.html">History</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="Maps.html">employee</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                            <li class="main-menu-item">
+                                  <a href="#"><i class="fa fa-fw fa-heart"></i> Menu<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="Rooms.html">Steak</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Pasta</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Pliaf</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Beverage</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                            <li class="main-menu-item">
+                                  <a href="#"><i class="fa fa-fw fa-user"></i> Reservation<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="#">Restaurant</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Bar</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Cafe</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Room Service</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                            <li class="main-menu-item">
+                                  <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="#">Gym</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Swimming Pool</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">CU</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Laundry Room</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                            <li class="main-menu-item">
+                                  <a href="#">Contact Us<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="#">Contact us</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="#">Recruit</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                      </ul>
+                </div>
+
+                <div class="contact">
+                      <p class="call"><ion-icon name="call"></ion-icon>&nbsp;&nbsp;&nbsp;+81 010 4910 3833</p>
+                      <p class="mail"><ion-icon name="mail"></ion-icon>&nbsp;&nbsp;&nbsp;junseak11051@gmail.com</p>
+                </div>
+          </div>
+    </div>
+    </nav>
+    <script type="text/javascript">
+        $('ul.main-menu li').click(function (e) {
+
+            if ($().siblings('li').find('ul.submenu:visible').length) {
+                $('ul.submenu').slideUp('normal');
+            }
+            $(this).find('ul.submenu').slideToggle('normal');
+        });
+
+        var t1 = new TimelineMax({ paused: true });     /*전환 시간 설정*/
+
+        t1.to(".menu", 0.2, {
+            opacity: 0.9
+        });
+
+        t1.staggerFrom(".main-menu li a:not(.submenu li a)", 1, {         /*메인메뉴 활성화*/
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        }, 0.1);
+
+        t1.from(".submenu", 0.1, {                                        /*서브메뉴 활성화*/
+            autoAlpha: 0
+        });
+
+        t1.from(".call", 0.1, {                                             /*전화번호 활성화*/
+            delay: -1,
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        });
+
+        t1.from(".mail", 0.1, {                                             /*이메일 활성화*/
+            delay: -1,
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        });
+
+        t1.reverse();
+
+        $(document).on("click", ".menu-btn", function () {                  /*클릭시 t1 함수 활성화*/
+            t1.reversed(!t1.reversed());
+        });
+
+        $(".close-menu").click(function () {                /*클릭시 t1 함수 역으로 활성화*/
+            t1.reversed(!t1.reversed());
+        });
+
+
+    </script>
