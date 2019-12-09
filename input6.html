@@ -1,0 +1,117 @@
+
+<nav>
+    <div>
+          <div class="menu-btn">
+                <ion-icon name="menu"></ion-icon>
+          </div>
+          <div class="menu">
+                <div class="close-menu">
+                      <ion-icon name="menu"></ion-icon>
+                </div>
+                <div class="nav">
+                      <ul class="main-menu">
+                            <li class="main-menu-item">
+                                  <a href="#"><ion-icon name="business"></ion-icon> Home<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="history.html">History</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="employee.html">Employee</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                            <li class="main-menu-item">
+                                  <a href="#"><ion-icon name="restaurant"></ion-icon> Menu<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="steak.html">Steak</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="pasta.html">Pasta</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="pliaf.html">Pliaf</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="desserts.html">Desserts & Drinks</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                            <li class="main-menu-item">
+                                  <a href="#"><ion-icon name="person"></ion-icon> Reservation<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="apply.html">Application</a>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                       
+                            <li class="main-menu-item">
+                                  <a href="#"><ion-icon name="call"></ion-icon> Contact<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="contact.html">Location &<br>Contact</a>
+                                        </li>
+                                      </ul>
+                                    </li>
+                      </ul>
+                </div>
+          </div>
+    </div>
+    </nav>
+    <p><strong>Our restaurant pilaf is cooked with recipes that are easy to make at home. There is only a technical difference. First, cut the rice and the ingredients that will accompany the meat, seafood, vegetables, etc. to a size that is easy to eat, and lightly fry it over low heat. The rice is then fried in oiled and sweetened pans. Season the fried rice, meat, and vegetables with salt, spices, and broth.</strong></p><br>
+    <p><img src="Bavarois.jpg" width="800" height="450"></p><p><strong>Bavarois:</strong> It is a kind of cold pudding that is made by hardening custard cream or hardening fresh cream and fruit puree, which is less soft than mousse.</p><p><img src="beignets.jpg" width="800" height="450"></p><p><strong>Beignets: </strong>It is a dessert made by pasting fruit into dough.</p><p><img src="charlotte.jpg" width="800" height="450"></p><p><strong>Charlotte: </strong>It is a cake filled with biscuits or cakes, filled with fruit, mousse, custard cream, jelly, etc.</p><p><img src="crepes.jpg" width="800" height="450"></p><p><strong>Crepes Suzette: </strong>After warming the orange juice, add the crepes to the sauce and warm up to serve ice cream. Crepes are also used in cold desserts that wrap fruit or ice cream.</p><p><img src="hot souffle.jpg" width="800" height="450"></p><p><strong>Hot Souffle:</strong> It is a soft dessert made from the bubble of egg white and features a swelling shape. It is divided into cream souffle and pulp souffle, and can be variously made according to various spices, liquor, and juice.</p><p><img src="Mousse.jpg" width="800" height="450"></p><p><strong>Mousse:</strong> The most basic modern dessert is a seasonal dessert where you can add fresh cream to fruit puree, harden it with coagulant and eat it with various fillings.
+
+
+    <script type="text/javascript">
+        $('ul.main-menu li').click(function (e) {
+
+            if ($().siblings('li').find('ul.submenu:visible').length) {
+                $('ul.submenu').slideUp('normal');
+            }
+            $(this).find('ul.submenu').slideToggle('normal');
+        });
+
+        var t1 = new TimelineMax({ paused: true });     /*전환 시간 설정*/
+
+        t1.to(".menu", 0.2, {
+            opacity: 0.9
+        });
+
+        t1.staggerFrom(".main-menu li a:not(.submenu li a)", 1, {         /*메인메뉴 활성화*/
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        }, 0.1);
+
+        t1.from(".submenu", 0.1, {                                        /*서브메뉴 활성화*/
+            autoAlpha: 0
+        });
+
+        t1.from(".call", 0.1, {                                             /*전화번호 활성화*/
+            delay: -1,
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        });
+
+        t1.from(".mail", 0.1, {                                             /*이메일 활성화*/
+            delay: -1,
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        });
+
+        t1.reverse();
+
+        $(document).on("click", ".menu-btn", function () {                  /*클릭시 t1 함수 활성화*/
+            t1.reversed(!t1.reversed());
+        });
+
+        $(".close-menu").click(function () {                /*클릭시 t1 함수 역으로 활성화*/
+            t1.reversed(!t1.reversed());
+        });
+
+
+    </script>
