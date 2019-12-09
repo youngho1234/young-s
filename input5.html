@@ -1,0 +1,117 @@
+
+<nav>
+    <div>
+          <div class="menu-btn">
+                <ion-icon name="menu"></ion-icon>
+          </div>
+          <div class="menu">
+                <div class="close-menu">
+                      <ion-icon name="menu"></ion-icon>
+                </div>
+                <div class="nav">
+                      <ul class="main-menu">
+                            <li class="main-menu-item">
+                                  <a href="#"><ion-icon name="business"></ion-icon> Home<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="history.html">History</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="employee.html">Employee</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                            <li class="main-menu-item">
+                                  <a href="#"><ion-icon name="restaurant"></ion-icon> Menu<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="steak.html">Steak</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="pasta.html">Pasta</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="pliaf.html">Pliaf</a>
+                                        </li>
+                                        <li class="submenu-item">
+                                              <a href="desserts.html">Desserts & Drinks</a>
+                                        </li>
+                                  </ul> 
+                            </li>
+                            <li class="main-menu-item">
+                                  <a href="#"><ion-icon name="person"></ion-icon> Reservation<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="apply.html">Application</a>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                       
+                            <li class="main-menu-item">
+                                  <a href="#"><ion-icon name="call"></ion-icon> Contact<ion-icon name="add"></ion-icon></a>
+                                  <ul class="submenu">
+                                        <li class="submenu-item">
+                                              <a href="contact.html">Location &<br>Contact</a>
+                                        </li>
+                                      </ul>
+                                    </li>
+                      </ul>
+                </div>
+          </div>
+    </div>
+    </nav>
+    <p><strong>We will introduce pasta best friend with steak at our restaurant.</strong></p><br>
+    <p><img src="bacon.png" width="800" height="450"></p><p><strong>Mushroom Bacon Pilaff:</strong> Fresh mushrooms in savory bacon Light pilaf with flavor.</p><p><img src="beef.png" width="800" height="450"></p><p><strong>Beef Brisket Pilaff: </strong>Stir-fry with marbling and side garlic Pilaf with a savory taste.</p><p><img src="kimchi.png" width="800" height="450"></p><p><strong>Kimchi pilaff: </strong>Spicy and Sour Kimchi, Kimchi pilaf perfect for spicy taster.</p><p><img src="pork.png" width="800" height="450"></p><p><strong>Pork Neck Pilaff: </strong>Roast a thick neck steak on the grill Best pilaf with deep flavor.</p><p><img src="shrimp.png" width="800" height="450"></p><p><strong>Shrimp Pilaff:</strong> Put chubby shrimp popping Shrimp and light dishes.</p><p><img src="chilli.png" width="800" height="450"></p><p><strong>Shrimp Hot Chilli Pilaff:</strong> Fresh shrimp and spicy hot chili Meet Spicy Shrimp Pilaf.
+
+
+    <script type="text/javascript">
+        $('ul.main-menu li').click(function (e) {
+
+            if ($().siblings('li').find('ul.submenu:visible').length) {
+                $('ul.submenu').slideUp('normal');
+            }
+            $(this).find('ul.submenu').slideToggle('normal');
+        });
+
+        var t1 = new TimelineMax({ paused: true });     /*전환 시간 설정*/
+
+        t1.to(".menu", 0.2, {
+            opacity: 0.9
+        });
+
+        t1.staggerFrom(".main-menu li a:not(.submenu li a)", 1, {         /*메인메뉴 활성화*/
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        }, 0.1);
+
+        t1.from(".submenu", 0.1, {                                        /*서브메뉴 활성화*/
+            autoAlpha: 0
+        });
+
+        t1.from(".call", 0.1, {                                             /*전화번호 활성화*/
+            delay: -1,
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        });
+
+        t1.from(".mail", 0.1, {                                             /*이메일 활성화*/
+            delay: -1,
+            opacity: 0,
+            y: 10,
+            ease: Power3.easeInOut
+        });
+
+        t1.reverse();
+
+        $(document).on("click", ".menu-btn", function () {                  /*클릭시 t1 함수 활성화*/
+            t1.reversed(!t1.reversed());
+        });
+
+        $(".close-menu").click(function () {                /*클릭시 t1 함수 역으로 활성화*/
+            t1.reversed(!t1.reversed());
+        });
+
+
+    </script>
