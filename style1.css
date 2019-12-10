@@ -23,7 +23,7 @@ body {
     top: 0;
     width: 400px;
     height: 100vh;
-    background: red;
+    background: #ff3333;
     opacity: 0;
 }
 
@@ -57,7 +57,7 @@ body {
 
 .submenu-item a {
     z-index: 10;
-    color: grey;
+    color: #fff;
 }
 
 .submenu li {
