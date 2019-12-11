@@ -55,6 +55,10 @@
                                         </li>
                                       </ul>
                                     </li>
+                             <li class="main-menu-item">
+                                  <a href="index.html"><ion-icon name="arrow-round-back"></ion-icon> Back<ion-icon name="add"></ion-icon></a>
+                              </li>
+
                       </ul>
                 </div>
           </div>
@@ -112,6 +116,18 @@
         $(".close-menu").click(function () {                /*클릭시 t1 함수 역으로 활성화*/
             t1.reversed(!t1.reversed());
         });
+        $(document).ready(function () { 
+          var top = $('#adside').offset().top - parseFloat($('#adside').css('marginTop').replace(/auto/, 0));
+         $(window).scroll(function (event) {
+          var y = $(this).scrollTop();
+     
+         if (y >= top) {
+            $('#adside').addClass('fixed');
+         } else {
+            $('#adside').removeClass('fixed');
+        }
+    });
+});
 
 
     </script>
