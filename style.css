@@ -85,20 +85,5 @@ a ion-icon {
 }
 
 
-#logo{display:block; position:fixed;top:30px;margin-left:40%;margin-right:50%;}
 
-.active{left:0;} 
-
-#adsideWrapper {
-      position: absolute;
-    }
-#adside {
-      position: absolute;
-      top: 0;
-    }
-#adside.fixed {
-  position: fixed;
-  top: 0;
-  margin-top:30px;
-}
 
