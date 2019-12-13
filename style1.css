@@ -1,6 +1,8 @@
  /*{
     border: solid;
 } */
+
+}
 iframe{
 
     margin-top:50px;
@@ -41,7 +43,7 @@ body {
     position: fixed;
     margin: 1em;
     font-size: 24px;
-    color: #fff;
+    color: #000000;
     z-index: 1;
 }
 
